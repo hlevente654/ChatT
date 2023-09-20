@@ -6,6 +6,10 @@ import { ChatGroup, Message } from "../chat.service";
     selector:'app-chat-list',
     templateUrl:'./chat-list.component.html'
 })
+/*
+* List of conversations
+* /In progress/
+*/
 export class ChatListComponent{
     chatGroups: ChatGroup[] = [new ChatGroup("TesztGroup 1", [new Message(1, "Levi", "üzenet")], "Levi"),
                                new ChatGroup("Teszt group 2", [new Message(2, "Jani", "vissza üzenet")], "Levi"),

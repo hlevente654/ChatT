@@ -7,6 +7,12 @@ import { Router } from "@angular/router";
     selector: 'app-login',
     templateUrl: './login.component.html'
 })
+/*
+* Login page component
+* /In progress/:
+*    Show louder
+*   Error handlers
+*/
 export class LoginPageComponent {
 
     constructor(private authService: AuthService, private router: Router){}

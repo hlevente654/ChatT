@@ -5,6 +5,12 @@ import { DataStorageService } from "src/app/shared/services/data-storage.service
     selector: 'app-userPage',
     templateUrl: './userPage.component.html',
 })
+/*
+* User's data page
+* /In progress/
+*   add a photo
+*   modification of data
+*/
 export class UserPageComponent implements OnInit{
     constructor(private dataStorageService: DataStorageService){}
 

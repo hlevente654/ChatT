@@ -13,4 +13,3 @@ export class Message{
         public message: string
     ){}
 }
-// Ide még kell hogy képeket is lehessen tenni

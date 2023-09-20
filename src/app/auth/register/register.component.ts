@@ -8,16 +8,20 @@ import { DataStorageService } from "../../shared/services/data-storage.service";
     selector: 'app-register',
     templateUrl: './register.component.html',
 })
+
+/*
+* RegisterComponent
+* /In progress/
+*   Error handlers
+*   Show loader
+*/
 export class RegisterComponent {
 
     constructor(private authService: AuthService, private router: Router,private dataStorageService: DataStorageService){}
 
-    //Signing up new user
-    //kell még ide:
-        /* -validator */
     onRegisterSubmit(form: NgForm){
         console.log('onSubmit');
-        //console.log(this.regForm.value);
+
         const email = form.value.email;
         const password = form.value.password;
         const name = form.value.userName;

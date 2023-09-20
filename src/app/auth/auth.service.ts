@@ -17,11 +17,14 @@ interface FirebaseResponseData{
 @Injectable({
     providedIn: 'root',
 })
+/*
+* Services for authentication
+*/
 export class AuthService{
     constructor(private http: HttpClient,private router: Router){}
 
     /*
-    * Ebben a "csőben" van tárolva a jelenlegi felhasználó. 
+    * Store current user
     */
     user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
     
@@ -33,6 +36,9 @@ export class AuthService{
         }, expirationDate);
     }
 
+    /*
+    * Stay logged in after page reloads
+    */
     autoLogin(){
         const userDataString = localStorage.getItem('userData');
 
@@ -57,7 +63,6 @@ export class AuthService{
             localStorage.setItem('userData', JSON.stringify(user));
     }
 
-    // Observable felkészítése regisztrációra
     register(email: string, password: string){
         return this.http.post<FirebaseResponseData>(
             'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA7hRU1PgXGGkKBmleXj6w8xpl4H4N4a7s',
@@ -71,7 +76,6 @@ export class AuthService{
             this.authenticationHandler(response.email, response.localId, response.idToken ,+response.expiresIn );
         }));
     }
-    // Observable felkészítése bejelentkezésre
     login(email: string, password: string){
         return this.http.post<FirebaseResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA7hRU1PgXGGkKBmleXj6w8xpl4H4N4a7s',
             {
