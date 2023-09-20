@@ -1,0 +1,35 @@
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a routerLink="/" class="navbar-brand">ChatT</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active" *ngIf="isLogedIn">
+                    <a routerLink="/user-Page">Felhasználó</a>
+                </li>
+                <li routerLinkActive="active" *ngIf="!isLogedIn">
+                    <a routerLink="/login-page">Bejelentkezés</a>
+                </li>
+                <li routerLinkActive="active" *ngIf="!isLogedIn">
+                    <a routerLink="/register-page">Regisztráció</a>
+                </li>
+                <li routerLinkActive="active" *ngIf="isLogedIn">
+                    <a routerLink="/chat-page">Chatek</a>
+                </li>
+                <li routerLinkActive="active" (click)="onLogOut()" *ngIf="isLogedIn">
+                    <a routerLink="/">Kijelentkezés</a>
+                </li>
+            </ul>
+            <div class="dropdown">
+                <div id="myDropdown">
+                    <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" id="searchTerm" (input)="onSearch()">
+                    <div #dropdownContent class="dropdown-content">
+                        <a *ngFor="let result of searchResults">{{ result }}</a>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>

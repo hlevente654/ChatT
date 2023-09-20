@@ -1,0 +1,16 @@
+<div class="card chat-page-border">
+    <div class="card-header block-style">
+        Csevegés
+    </div>
+    <div class="card-body block-style" #chatMessages>
+        <!--
+            * ngFor az üzenetek felsorolására
+        -->
+    </div>
+</div>
+<div class="card-footer block-style" style="margin-top: auto;">
+    <form #messageForm (ngSubmit)="onSubmit(messageForm)">
+        <input type="text" placeholder="Új üzenet">
+        <input type="submit" value="Üzenet elküldése" style="display: none;">
+    </form>
+</div>
